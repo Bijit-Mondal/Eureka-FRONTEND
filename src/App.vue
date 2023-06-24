@@ -9,10 +9,14 @@
   </Suspense>
 
   <router-view/>
+
+  <FooterComponent/>
+
 </template>
 <script setup>
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import HeaderSkeleton from '@/components/HeaderSkeleton.vue'
+import FooterComponent from './components/FooterComponent.vue';
 </script>
 <style>
 #app {

@@ -21,7 +21,7 @@
                 v-model="team"
             />
 
-            <vs-button class="input_button outfit" color="#FDBCBC" gradient-color-secondary="#E91A42" type="gradient">Sign In</vs-button>
+            <vs-button to="/quiz/1" class="input_button outfit" color="#FDBCBC" gradient-color-secondary="#E91A42" type="gradient">Sign In</vs-button>
         </div>
     </div>
 </template>
