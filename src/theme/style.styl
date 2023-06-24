@@ -1,0 +1,36 @@
+@import 'base.styl'
+light-bg = #FF5757
+text-color = #193238
+bright-bg = #E91A42
+white = #FFFFFF
+text-color-red = #FDBCBC
+
+body
+  background-color #f8dddd
+
+@font-face
+  font-family 'Anurati'
+  src url('../assets/fonts/Anurati-Regular.otf')
+
+@font-face 
+    font-family 'Outfit';
+    src url('../assets/fonts/Outfit-Medium.ttf');
+
+
+.anurati
+  font-family 'Anurati', Verdana, Geneva, Tahoma, sans-serif
+
+.outfit
+    font-family 'Outfit',sans-serif
+
+.text-color
+    color text-color
+    opacity 0.8
+
+::selection
+    color text-color
+    background light-bg
+
+--moz::selection
+    color text-color
+    background light-bg
