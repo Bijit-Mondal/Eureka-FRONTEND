@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1 class="text-color outfit" style="margin-top: 20vb;">Create Account to start with <span class="anurati">EUREKA</span></h1>
+    <div class="login-container">
+        <h1 class="text-color outfit">Create Account to start with <span class="anurati">EUREKA</span></h1>
         <div class="container centerx">
             <vs-input
               class="input_box outfit"
@@ -44,6 +44,11 @@
   }
 </script>
 <style lang="stylus" scoped>
+
+.login-container{
+    margin: auto 0;
+}
+
 .container
   display flex
   flex-direction column
