@@ -24,14 +24,10 @@
   </script>
   <style lang="stylus" scoped>
   .fixed-div
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     z-index: 9999;
-    margin-bottom: 0.15rem;
     display: flex;
     border-bottom: 2px solid #000;
-    background: linear-gradient(to right, #FDBCBC, #fff); opacity: 0.8;
+    background: linear-gradient(to right, #FDBCBC, #fff);
     opacity: 0.8;
+    margin-top 1rem;
   </style>
