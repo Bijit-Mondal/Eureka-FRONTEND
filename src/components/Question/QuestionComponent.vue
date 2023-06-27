@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin-bottom: 6rem;">
         <h1 class="text-color outfit" style="margin-top: 20vb;">1. Question title goes here, it can be interesting or boring
         </h1>
         <vs-row vs-justify="center">
