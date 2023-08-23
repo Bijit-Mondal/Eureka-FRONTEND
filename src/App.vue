@@ -1,22 +1,22 @@
 <template>
   <Suspense>
     <template #default>
-      <HeaderComponent/>
+      <HeaderComponent />
     </template>
     <template #fallback>
-      <HeaderSkeleton/>
+      <HeaderSkeleton />
     </template>
   </Suspense>
 
-  <router-view/>
+  <router-view />
 
-  <FooterComponent/>
-
+  <FooterComponent />
 </template>
 <script setup>
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import HeaderSkeleton from '@/components/HeaderSkeleton.vue'
 import FooterComponent from './components/FooterComponent.vue';
+
 </script>
 <style>
 #app {
