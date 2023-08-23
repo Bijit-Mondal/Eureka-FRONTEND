@@ -2,49 +2,70 @@
     <div class="login-container">
         <h1 class="text-color outfit">Create Account to start with <span class="anurati">EUREKA</span></h1>
         <div class="container centerx">
-            <vs-input
-              class="input_box outfit"
-              :success="isEmailValid"
-              size="large"
-              icon="email"
-              success-text="The mail is valid"
-              label-placeholder="Enter Email Address"
-              v-model="email"
-              @keyup="emailValidate"
-            />
+            <vs-input class="input_box outfit" :success="isEmailValid" size="large" icon="email"
+                success-text="The mail is valid" label-placeholder="Enter Email Address" v-model="email"
+                @keyup="emailValidate" />
 
-            <vs-input
-                class="input_box outfit"
-                size="large"
-                icon="group"
-                label-placeholder="Enter Team Name"
-                v-model="team"
-            />
+            <vs-input class="input_box outfit" size="large" icon="group" label-placeholder="Enter Team Name"
+                v-model="team" />
 
-            <vs-button to="/quiz/1" class="input_button outfit" color="#FDBCBC" gradient-color-secondary="#E91A42" type="gradient">Sign In</vs-button>
+            <vs-button @click="create" class="input_button outfit" color="#FDBCBC" gradient-color-secondary="#E91A42"
+                type="gradient">Sign In</vs-button>
         </div>
     </div>
 </template>
   
 <script>
-  export default{
-    data(){
-        return{
-            email:'',
-            team:'',
-            isEmailValid:false
+import { useAuth } from "@/api/auth";
+import { useLevelStore } from "@/store/level";
+export default {
+    data() {
+        return {
+            email: '',
+            team: '',
+            isEmailValid: false
         }
     },
-    methods:{
+    methods: {
         emailValidate() {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             this.isEmailValid = emailRegex.test(this.email);
+        },
+        create() {
+            this.$vs.loading();
+            const { createAccount } = useAuth();
+            const levelStore  = useLevelStore();
+            createAccount(this.email, this.team)
+                .then((res) => {
+                    this.$vs.loading.close();
+                    console.log(res);
+                    if (res.error) {
+                        this.Notification('Error', res.error)
+                    } if (!res.accessToken) {
+                        this.Notification('Error', res.message +" "+ res.error)
+                    } else {
+                        this.Notification('Account Created with ', res.email + " check you email")
+                        setTimeout(() => {
+                            this.$router.push(levelStore.nextURI);
+                        }, 2000);
+                    }
+                }).catch((err) => {
+                    this.Notification('Error', err);
+                })
+        },
+        Notification(title, msg) {
+            this.$vs.notify({
+                title: title,
+                text: msg,
+                color: "dark",
+                position: 'top-right',
+                fixed: true,
+            })
         }
     }
-  }
+}
 </script>
 <style lang="stylus" scoped>
-
 .login-container{
     margin: auto 0;
 }
