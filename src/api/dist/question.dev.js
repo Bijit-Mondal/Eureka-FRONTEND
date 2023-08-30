@@ -40,6 +40,7 @@ var useQuesion = function useQuesion() {
             levelStore.allQuestion = data;
 
             if (data.questionId) {
+              levelStore.hint = 0;
               levelStore.level += 1;
 
               if (levelStore.level < levelStore.allQuestion.noquestion) {
@@ -49,8 +50,6 @@ var useQuesion = function useQuesion() {
               }
 
               levelStore.setnextURI(uri);
-              levelStore.score = null;
-              levelStore.setHint(0);
             }
 
             return _context.abrupt("return", data);
@@ -69,46 +68,71 @@ var useQuesion = function useQuesion() {
   };
 
   var getQuestionById = function getQuestionById(questionId) {
-    var authStore, levelStore, response, data;
+    var authStore, response, data;
     return regeneratorRuntime.async(function getQuestionById$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             authStore = (0, _auth.useAuthStore)();
-            levelStore = (0, _level.useLevelStore)();
-
-            if (levelStore.score == null) {
-              levelStore.score = 50;
-              levelStore.hintUsed = 0;
-            }
-
-            _context2.prev = 3;
-            _context2.next = 6;
+            _context2.prev = 1;
+            _context2.next = 4;
             return regeneratorRuntime.awrap(_axios["default"].get("/question/get/".concat(questionId), {
               headers: getAuthorizationHeader(authStore.accessToken)
             }));
 
-          case 6:
+          case 4:
             response = _context2.sent;
             data = response.data;
             return _context2.abrupt("return", data);
 
-          case 11:
-            _context2.prev = 11;
-            _context2.t0 = _context2["catch"](3);
+          case 9:
+            _context2.prev = 9;
+            _context2.t0 = _context2["catch"](1);
             console.error("Error fetching question with ID ".concat(questionId, ":"), _context2.t0);
 
-          case 14:
+          case 12:
           case "end":
             return _context2.stop();
         }
       }
-    }, null, null, [[3, 11]]);
+    }, null, null, [[1, 9]]);
+  };
+
+  var getHintById = function getHintById(questionId, hintId) {
+    var authStore, response, data;
+    return regeneratorRuntime.async(function getHintById$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            authStore = (0, _auth.useAuthStore)();
+            _context3.prev = 1;
+            _context3.next = 4;
+            return regeneratorRuntime.awrap(_axios["default"].get("/question/get/".concat(questionId, "/hint/").concat(hintId), {
+              headers: getAuthorizationHeader(authStore.accessToken)
+            }));
+
+          case 4:
+            response = _context3.sent;
+            data = response.data;
+            return _context3.abrupt("return", data);
+
+          case 9:
+            _context3.prev = 9;
+            _context3.t0 = _context3["catch"](1);
+            throw "Error fetching hint for question with ID ".concat(questionId, ":");
+
+          case 12:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, null, null, [[1, 9]]);
   };
 
   return {
     getAllQuestion: getAllQuestion,
-    getQuestionById: getQuestionById
+    getQuestionById: getQuestionById,
+    getHintById: getHintById
   };
 };
 

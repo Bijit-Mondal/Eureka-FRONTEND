@@ -27,12 +27,11 @@ var useAuth = function useAuth() {
               email: email,
               teamName: teamName
             });
-            console.log(_axios["default"]);
-            _context.prev = 3;
-            _context.next = 6;
+            _context.prev = 2;
+            _context.next = 5;
             return regeneratorRuntime.awrap(_axios["default"].post('/auth/enter', data));
 
-          case 6:
+          case 5:
             response = _context.sent;
 
             if (response.data.accessToken) {
@@ -42,17 +41,17 @@ var useAuth = function useAuth() {
 
             return _context.abrupt("return", response.data);
 
-          case 11:
-            _context.prev = 11;
-            _context.t0 = _context["catch"](3);
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](2);
             return _context.abrupt("return", _context.t0);
 
-          case 14:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, null, null, [[3, 11]]);
+    }, null, null, [[2, 10]]);
   };
 
   var login = function login(password) {
@@ -80,7 +79,7 @@ var useAuth = function useAuth() {
             if (response.data.accessToken) {
               authStore.setAccessToken(response.data.accessToken);
               authStore.setEmail(response.data.email);
-              levelStore.setLevel(-1);
+              levelStore.setLevel(response.data.level);
               getAllQuestion();
             }
 
@@ -99,9 +98,53 @@ var useAuth = function useAuth() {
     }, null, null, [[5, 13]]);
   };
 
+  var loginAgain = function loginAgain(email, password) {
+    var authStore, levelStore, _useQuesion2, getAllQuestion, data, response;
+
+    return regeneratorRuntime.async(function loginAgain$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            authStore = (0, _auth.useAuthStore)();
+            levelStore = (0, _level.useLevelStore)();
+            _useQuesion2 = (0, _question.useQuesion)(), getAllQuestion = _useQuesion2.getAllQuestion;
+            data = JSON.stringify({
+              email: email,
+              password: password
+            });
+            _context3.prev = 4;
+            _context3.next = 7;
+            return regeneratorRuntime.awrap(_axios["default"].post('/auth/login', data));
+
+          case 7:
+            response = _context3.sent;
+
+            if (response.data.accessToken) {
+              authStore.setAccessToken(response.data.accessToken);
+              authStore.setEmail(response.data.email);
+              levelStore.setLevel(response.data.level);
+              getAllQuestion();
+            }
+
+            return _context3.abrupt("return", response.data);
+
+          case 12:
+            _context3.prev = 12;
+            _context3.t0 = _context3["catch"](4);
+            return _context3.abrupt("return", _context3.t0);
+
+          case 15:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, null, null, [[4, 12]]);
+  };
+
   return {
     createAccount: createAccount,
-    login: login
+    login: login,
+    loginAgain: loginAgain
   };
 };
 

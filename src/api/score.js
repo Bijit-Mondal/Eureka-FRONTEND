@@ -7,10 +7,10 @@ const getAuthorizationHeader = (accessToken) => {
 };
 
 export const useScore = () => {
-    const scoreUpdate = async function(QId,answer,score){
+    const scoreUpdate = async function(QId,answer){
         const { getAllQuestion } = useQuesion();
         const authStore = useAuthStore();
-        const data = JSON.stringify({QId,answer,score});
+        const data = JSON.stringify({QId,answer});
         try{
             const response = await instance.post('/score/add', data ,{
                 headers: getAuthorizationHeader(authStore.accessToken),

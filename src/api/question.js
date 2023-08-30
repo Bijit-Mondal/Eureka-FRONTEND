@@ -17,6 +17,7 @@ export const useQuesion = () => {
       const data = response.data;
       levelStore.allQuestion = data;
       if (data.questionId) {
+        levelStore.hint = 0;
         levelStore.level +=1;
         let uri;
         if(levelStore.level< levelStore.allQuestion.noquestion){
@@ -25,8 +26,6 @@ export const useQuesion = () => {
           uri = "/winner-list";
         }
         levelStore.setnextURI(uri);
-        levelStore.score = null;
-        levelStore.setHint(0);
       }
       return data;
     } catch (error) {
@@ -36,11 +35,6 @@ export const useQuesion = () => {
 
   const getQuestionById = async function (questionId) {
     const authStore = useAuthStore();
-    const levelStore = useLevelStore();
-    if(levelStore.score==null){
-      levelStore.score = 50;
-      levelStore.hintUsed = 0;
-    }
     try {
       const response = await instance.get(`/question/get/${questionId}`, {
         headers: getAuthorizationHeader(authStore.accessToken),
@@ -52,8 +46,22 @@ export const useQuesion = () => {
     }
   };
 
+  const getHintById = async function (questionId,hintId) {
+    const authStore = useAuthStore();
+    try {
+      const response = await instance.get(`/question/get/${questionId}/hint/${hintId}`, {
+        headers: getAuthorizationHeader(authStore.accessToken),
+      });
+      const data = response.data;
+      return data;
+    } catch (error) {
+      throw `Error fetching hint for question with ID ${questionId}:`;
+    }
+  };
+
   return {
     getAllQuestion,
     getQuestionById,
+    getHintById,
   };
 };
