@@ -14,10 +14,9 @@ var _vueRouter = require("vue-router");
 var useLevelStore = (0, _pinia.defineStore)('level', {
   state: function state() {
     return {
-      level: -1,
-      hintUsed: 0,
-      score: null,
+      level: null,
       nextURI: '/otp',
+      hint: 0,
       allQuestion: null
     };
   },
@@ -29,17 +28,8 @@ var useLevelStore = (0, _pinia.defineStore)('level', {
     leveUpgrade: function leveUpgrade() {
       this.level++;
     },
-    setHint: function setHint(hintUsed) {
-      this.hintUsed = hintUsed;
-    },
     setnextURI: function setnextURI(nextURI) {
       this.nextURI = nextURI;
-    },
-    hintUsing: function hintUsing() {
-      this.hintUsed++;
-    },
-    setScore: function setScore() {
-      this.score -= 5;
     }
   },
   setup: function setup() {

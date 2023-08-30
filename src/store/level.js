@@ -6,10 +6,9 @@ import { useRouter } from "vue-router";
 export const useLevelStore = defineStore('level', {
     state: () => {
         return {
-            level: -1,
-            hintUsed: 0,
-            score: null,
+            level: null,
             nextURI: '/otp',
+            hint: 0,
             allQuestion:null,
         };
     },
@@ -21,17 +20,8 @@ export const useLevelStore = defineStore('level', {
         leveUpgrade() {
             this.level++;
         },
-        setHint(hintUsed) {
-            this.hintUsed = hintUsed;
-        },
         setnextURI(nextURI) {
             this.nextURI = nextURI;
-        },
-        hintUsing() {
-            this.hintUsed++;
-        },
-        setScore() {
-            this.score -= 5;
         }
     },
     setup() {

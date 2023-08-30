@@ -20,7 +20,7 @@ var getAuthorizationHeader = function getAuthorizationHeader(accessToken) {
 };
 
 var useScore = function useScore() {
-  var scoreUpdate = function scoreUpdate(QId, answer, score) {
+  var scoreUpdate = function scoreUpdate(QId, answer) {
     var _useQuesion, getAllQuestion, authStore, data, response, res;
 
     return regeneratorRuntime.async(function scoreUpdate$(_context) {
@@ -31,8 +31,7 @@ var useScore = function useScore() {
             authStore = (0, _auth.useAuthStore)();
             data = JSON.stringify({
               QId: QId,
-              answer: answer,
-              score: score
+              answer: answer
             });
             _context.prev = 3;
             _context.next = 6;
