@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/winner-list',
-    component: HomeView
+    component: () => import('../views/WinnerListView.vue')
   },
   {
     path: '/otp',

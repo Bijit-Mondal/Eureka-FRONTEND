@@ -7,24 +7,36 @@ const getAuthorizationHeader = (accessToken) => {
 };
 
 export const useScore = () => {
-    const scoreUpdate = async function(QId,answer){
+    const scoreUpdate = async function (QId, answer) {
         const { getAllQuestion } = useQuesion();
         const authStore = useAuthStore();
-        const data = JSON.stringify({QId,answer});
-        try{
-            const response = await instance.post('/score/add', data ,{
+        const data = JSON.stringify({ QId, answer });
+        try {
+            const response = await instance.post('/score/add', data, {
                 headers: getAuthorizationHeader(authStore.accessToken),
             });
             const res = response.data;
-            if(res.msg === "Correct Answer"){
+            if (res.msg === "Correct Answer") {
                 getAllQuestion();
             }
             return res;
-        }catch(err){
+        } catch (err) {
             return err;
         }
     };
-    return{
-        scoreUpdate
+    const getResult = async function () {
+        const authStore = useAuthStore();
+        try {
+            const response = await instance.get('/auth/result', {
+                headers: getAuthorizationHeader(authStore.accessToken),
+            });
+            return response;
+        } catch (error) {
+            console.error('Error fetching result:', error);
+        }
+    }
+    return {
+        scoreUpdate,
+        getResult
     };
 }

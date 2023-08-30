@@ -25,7 +25,11 @@ var routes = [{
   component: _HomeView["default"]
 }, {
   path: '/winner-list',
-  component: _HomeView["default"]
+  component: function component() {
+    return Promise.resolve().then(function () {
+      return _interopRequireWildcard(require('../views/WinnerListView.vue'));
+    });
+  }
 }, {
   path: '/otp',
   name: 'otp',

@@ -1,0 +1,51 @@
+img {
+  -webkit-user-drag: none; /* Safari */
+  -khtml-user-drag: none; /* Konqueror HTML */
+  -moz-user-drag: none; /* Firefox */
+  -o-user-drag: none; /* Opera */
+  user-drag: none; /* Generic */
+}
+.logo {
+  font-size: 3em;
+  font-weight: bolder;
+  color: text-color;
+  --webkit-background-clip: text;
+  --webkit-text-fill-color: transparent;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+body {
+  background-color: #f8dddd;
+}
+@font-face {
+  font-family: 'Anurati';
+  src: url("../assets/fonts/Anurati-Regular.otf");
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url("../assets/fonts/Outfit-Medium.ttf");
+}
+.anurati {
+  font-family: 'Anurati', Verdana, Geneva, Tahoma, sans-serif;
+}
+.outfit {
+  font-family: 'Outfit', sans-serif;
+}
+.text-color {
+  color: #193238;
+  opacity: 0.8;
+}
+::selection {
+  color: #193238;
+  background: #ff5757;
+}
+--moz::selection {
+  color: #193238;
+  background: #ff5757;
+}

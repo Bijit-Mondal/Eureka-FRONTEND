@@ -1,7 +1,8 @@
 <template>
   <div style="margin-bottom: 6rem;">
     <div style="display: flex; justify-content: flex-end; align-items: center;">
-      <span class="badge text-color glow outfit" style="margin-top: 12vb;">Marks: 50</span>
+      <span @click="leaderBoard" class="badge text-color glow outfit" style="margin-top: 12vb; cursor: pointer;">Leaderboard</span>
+      <span class="badge text-color outfit" style="margin-top: 12vb;">Marks: 50</span>
     </div>
     <div style="display: flex; margin-top: 2.5vb; justify-content: center; align-items: center;">
       <h1 class="text-color outfit">{{levelStore.level+1}}. {{ title }}</h1>
@@ -51,7 +52,7 @@ export default {
       answer: '',
       levelStore: '',
       lastExecutionTime: 0, // Initialize with a value that guarantees the method can be executed immediately
-      delayDuration: 20000, // 10 seconds in milliseconds
+      delayDuration: 20000, // 20 seconds in milliseconds
     }
   },
   methods: {
@@ -89,6 +90,9 @@ export default {
         }).catch((err)=>{
           console.log(err);
         })
+    },
+    leaderBoard(){
+      this.$router.push("/winner-list")
     },
     submitAnswer(){ 
       if(this.answer==''){

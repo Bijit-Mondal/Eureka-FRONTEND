@@ -8,7 +8,7 @@
         <LoginComponent />
       </div>
     </template>
-    <template #fallback>(
+    <template #fallback>
         <span>Loading...</span>
     </template>
   </Suspense>
