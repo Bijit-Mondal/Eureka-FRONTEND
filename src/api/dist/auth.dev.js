@@ -98,10 +98,10 @@ var useAuth = function useAuth() {
     }, null, null, [[5, 13]]);
   };
 
-  var loginAgain = function loginAgain(email, password) {
+  var relogin = function relogin(email, password) {
     var authStore, levelStore, _useQuesion2, getAllQuestion, data, response;
 
-    return regeneratorRuntime.async(function loginAgain$(_context3) {
+    return regeneratorRuntime.async(function relogin$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
@@ -144,7 +144,7 @@ var useAuth = function useAuth() {
   return {
     createAccount: createAccount,
     login: login,
-    loginAgain: loginAgain
+    relogin: relogin
   };
 };
 

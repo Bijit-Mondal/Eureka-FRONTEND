@@ -13,6 +13,10 @@ const routes = [
     component: () => import('../views/WinnerListView.vue')
   },
   {
+    path: '/re-login',
+    component: () => import('../views/ReloginView.vue')
+  },
+  {
     path: '/otp',
     name: 'otp',
     component: () => import('../views/OTPView.vue'),

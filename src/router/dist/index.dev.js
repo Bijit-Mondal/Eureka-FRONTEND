@@ -31,6 +31,13 @@ var routes = [{
     });
   }
 }, {
+  path: '/re-login',
+  component: function component() {
+    return Promise.resolve().then(function () {
+      return _interopRequireWildcard(require('../views/ReloginView.vue'));
+    });
+  }
+}, {
   path: '/otp',
   name: 'otp',
   component: function component() {

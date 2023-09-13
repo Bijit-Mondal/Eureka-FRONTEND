@@ -40,7 +40,7 @@ export const useAuth = () => {
     }
   };
 
-  const loginAgain = async function (email,password) {
+  const relogin = async function (email,password) {
     const authStore = useAuthStore();
     const levelStore = useLevelStore();
     const { getAllQuestion } = useQuesion();
@@ -63,6 +63,6 @@ export const useAuth = () => {
   return {
     createAccount,
     login,
-    loginAgain,
+    relogin,
   };
 };
