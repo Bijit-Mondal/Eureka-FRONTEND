@@ -11,6 +11,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var instance = _axios["default"].create({
   baseURL: 'https://backend-eureka.bijit.xyz/',
+  // baseURL: 'http://192.168.1.5:3000',
   headers: {
     'Content-Type': 'application/json'
   }

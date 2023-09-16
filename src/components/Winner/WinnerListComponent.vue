@@ -6,6 +6,7 @@
                     <th>Rank</th>
                     <th>Avatar</th>
                     <th>Team</th>
+                    <th>Level</th>
                     <th>Points</th>
                     <th>Finished Time</th>
                     <th>Hint Used</th>
@@ -18,8 +19,9 @@
                         <vs-avatar size="large" :src="generateAvatarURL(item.teamName)" />
                     </td>
                     <td>{{ item.teamName }}</td>
+                    <td>{{ item.level }}</td>
                     <td>{{ item.totalMarks }}</td>
-                    <td>{{ formatTime(item.updatedAt) }}</td>
+                    <td>{{ item.updatedAt[2] }}-{{item.updatedAt[1]}}-{{ item.updatedAt[0] }} at {{ item.updatedAt[3] }}:{{ item.updatedAt[4] }} </td>
                     <td>{{ item.hintUsed }}</td>
                 </tr>
             </tbody>
@@ -34,20 +36,6 @@ export default {
        time: Date.now()
     }),
     methods: {
-        formatTime(timestampArray) {
-            const [year, month, day, hour, minute, second, milliseconds] = timestampArray;
-            const date = new Date(year, month - 1, day, hour, minute, second, milliseconds);
-            
-            const dayFormatted = String(date.getDate()).padStart(2, '0');
-            const monthFormatted = String(date.getMonth() + 1).padStart(2, '0');
-            const yearFormatted = String(date.getFullYear()).slice(-2);
-            const hours = String(date.getHours() % 12 || 12).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
-            const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
-            
-            const formattedTime = `${hours}:${minutes} ${ampm}`;
-            return `${dayFormatted}-${monthFormatted}-${yearFormatted} ${formattedTime}`;
-        },
         generateAvatarURL(teamName) {
             return `https://api.dicebear.com/6.x/notionists-neutral/svg?seed=${teamName}`;
         },
@@ -56,7 +44,7 @@ export default {
             getResult()
             .then((res)=>{
                 this.result = res.data;
-                console.log(this.result.teams);
+                // console.log(this.result.teams);
             }).catch(err=>{
                 console.log(err);
             })
