@@ -83,11 +83,14 @@ export default {
       }
     },
     getHint(){
+      this.$vs.loading();
       const {getHintById} = useQuesion();
         getHintById(this.$route.params.id,this.levelStore.hint).then((data)=>{
+          this.$vs.loading.close();
           this.$vs.notify({ title: 'Hint', text: data.hint, color: 'danger',time:20000});
           this.levelStore.hint +=1;
         }).catch((err)=>{
+          this.$vs.loading.close();
           console.log(err);
         })
     },
@@ -99,8 +102,10 @@ export default {
         this.$vs.notify({title:'Error',text:'I believe in you, you can answer', color: "dark",position: 'top-right',fixed: true});
       }
       const {scoreUpdate} = useScore();
+      this.$vs.loading();
       scoreUpdate(this.$route.params.id,this.answer)
       .then((data)=>{
+        this.$vs.loading.close();
         if(data.msg == "Correct Answer"){
           this.$vs.notify({title:'Success',text:data.msg, color: "success",position: 'top-right',fixed: true});
           setTimeout(() => {
@@ -110,6 +115,7 @@ export default {
           this.$vs.notify({title:'Error',text:data.msg, color: "dark",position: 'top-right',fixed: true});
         }
       }).catch((err)=>{
+        this.$vs.loading.close();
         alert(err);
       })
     },
