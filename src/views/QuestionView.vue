@@ -1,10 +1,8 @@
 <template>
   <Suspense>
-    <template #default>
       <div class="question">
         <QuestionComponent/>
       </div>
-    </template>
     <template #fallback>
       <div class="question">
         <QuestionSkeleton/>
