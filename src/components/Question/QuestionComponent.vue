@@ -22,7 +22,7 @@
             <img v-if="imgSrc" :src=imgSrc class="responsive-image">
           </div>
           <div style="display:flex; justify-content: space-around; margin-top: 5ch;">
-            <span style="font-size: 1.4rem;" class="outfit">
+            <span style="font-size: 1.4rem; text-align:left;" class="outfit">
               {{ question }}
             </span>
           </div>
