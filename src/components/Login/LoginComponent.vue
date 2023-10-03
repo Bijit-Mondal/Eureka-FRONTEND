@@ -1,5 +1,12 @@
 <template>
     <div class="login-container">
+        <h1 class="text-color outfit">Welcome to EUREKA <br><br></h1>
+        <div class="container centerx">
+            <h2>আয় তোর মুণ্ডুটা দেখি, আয় দেখি 'ফুটোস্কোপ' দিয়ে<br>
+            দেখি কত ভেজালের মেকি আছে তোর মগজের ঘিয়ে ।<br>
+            কোন্‌ দিকে বুদ্ধিটা খোলে, কোন্‌ দিকে থেকে যায় চাপা ;<br>
+            কতখানি ভস্‌ ভস্‌ ঘিলু, কতখানি ঠক্‌ ঠকে কাঁপা ।<br><br></h2>
+        </div>
         <h1 class="text-color outfit">Create Account to start with <span class="anurati">EUREKA</span></h1>
         <div class="container centerx">
             <vs-input class="input_box outfit" :success="isEmailValid" size="large" icon="email"
@@ -66,9 +73,10 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-.login-container{
+.login-container
     margin: auto 0;
-}
+    padding-bottom 100px
+
 
 .container
   display flex

@@ -3,7 +3,7 @@
     <template #default>
       <div class="home">
         <!-- <div id="hint">
-          Hi Hello
+          Abol Tabol
         </div> -->
         <LoginComponent />
       </div>
