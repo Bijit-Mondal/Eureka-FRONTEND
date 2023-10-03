@@ -1,5 +1,4 @@
 <template>
-<div style="margin-bottom: 6rem;">
     <div class="login-container">
         <h1 class="text-color outfit">Welcome to EUREKA <br><br></h1>
         <div class="container centerx">
@@ -21,7 +20,6 @@
                 type="gradient">Sign In</vs-button>
         </div>
     </div>
-</div>
 </template>
   
 <script>
@@ -78,7 +76,8 @@ export default {
 .login-container
     margin: auto 0;
     padding-bottom 100px
-
+.cardx
+  margin 15px
 
 .container
   display flex
