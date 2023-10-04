@@ -2,7 +2,7 @@
   <div style="margin-bottom: 6rem;">
     <div style="display: flex; justify-content: flex-end; align-items: center;">
       <span @click="leaderBoard" class="badge text-color glow outfit" style="margin-top: 12vb; cursor: pointer;">Leaderboard</span>
-      <span class="badge text-color outfit" style="margin-top: 12vb;">Marks: 50</span>
+      <span class="badge text-color outfit" style="margin-top: 12vb; margin-right: 1vw;">Max Marks: 50</span>
     </div>
     <div style="display: flex; margin-top: 2.5vb; justify-content: center; align-items: center;">
       <h1 class="text-color outfit">{{levelStore.level+1}}. {{ title }}</h1>
@@ -86,6 +86,7 @@ export default {
       const {getHintById} = useQuesion();
         getHintById(this.$route.params.id,this.levelStore.hint).then((data)=>{
           this.$vs.loading.close();
+          console.log(data.hint);
           this.$vs.notify({ title: 'Hint', text: data.hint, color: 'danger',time:20000});
           this.levelStore.hint +=1;
         }).catch((err)=>{

@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed-div">
+    <div class="fixed-footer">
       <div style="display: flex; flex-direction: column; width: 100%;">
         <div style="display: flex; flex: 1; justify-content: center; align-items: center; margin: 10px;">
             <span class="anurati">EUREKA</span>
@@ -23,7 +23,7 @@
   }
   </script>
   <style lang="stylus" scoped>
-  .fixed-div
+  .fixed-footer
     z-index: 9999;
     display: flex;
     border-bottom: 2px solid #000;
