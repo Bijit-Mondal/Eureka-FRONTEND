@@ -1,5 +1,5 @@
 <template>
-<div style="margin-bottom: 6rem;">
+<div>
     <div class="login-container">
         <h1 class="text-color outfit">Welcome to EUREKA <br><br></h1>
         <div class="container centerx">
