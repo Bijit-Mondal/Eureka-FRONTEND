@@ -19,7 +19,7 @@
       <vs-col type="flex" vs-justify="center" vs-align="center" vs-w="8">
         <div style="display: flex; flex-direction: column;">
           <div style="display:flex; justify-content: space-around; margin-top: 5ch;">
-            <img v-if="imgSrc" :src=imgSrc class="responsive-image">
+            <img v-if="imgSrc" alt="Bapi Dutta" :src=imgSrc class="responsive-image">
           </div>
           <div style="display:flex; justify-content: space-around; margin-top: 5ch;">
             <span style="font-size: 1.4rem; text-align:left;" class="outfit" v-html="question">
