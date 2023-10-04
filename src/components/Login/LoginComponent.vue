@@ -1,7 +1,8 @@
 <template>
-<div>
-    <div class="login-container">
-        <h1 class="text-color outfit">Welcome to EUREKA <br><br></h1>
+    <div style="margin-bottom: 6rem;">
+        <div style="display: flex; margin-top: 10vb; justify-content: center; align-items: center;">
+            <h1 class="text-color outfit">Welcome to EUREKA <br><br></h1>
+        </div>
         <div class="container centerx">
             <h2>আয় তোর মুণ্ডুটা দেখি, আয় দেখি 'ফুটোস্কোপ' দিয়ে<br>
             দেখি কত ভেজালের মেকি আছে তোর মগজের ঘিয়ে ।<br>
@@ -21,7 +22,6 @@
                 type="gradient">Sign In</vs-button>
         </div>
     </div>
-</div>
 </template>
   
 <script>
@@ -76,7 +76,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .login-container
-    margin: auto 0;
+    margin-bottom: 6rem;
     padding-bottom 100px
 
 
@@ -86,6 +86,13 @@ export default {
   align-items center
   justify-content flex-start
   height fit-content
+
+.cardx
+  margin 15px
+
+.responsive-image 
+  max-width: 100%;
+  height: auto;
 
 input[type="text"]
     width: 200px
