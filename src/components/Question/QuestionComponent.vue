@@ -51,7 +51,7 @@ export default {
       answer: '',
       levelStore: '',
       lastExecutionTime: 0, // Initialize with a value that guarantees the method can be executed immediately
-      delayDuration: 20000, // 20 seconds in milliseconds
+      delayDuration: 300000 , // 5 minutes in milliseconds
     }
   },
   methods: {
