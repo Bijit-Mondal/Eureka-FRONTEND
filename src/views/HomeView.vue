@@ -35,7 +35,6 @@ onMounted(()=>{
   margin-top: 95px;
   display: flex;
   align-items: center;
-  height: calc(100vh - 235px);
   justify-content: center;
 
 </style>
